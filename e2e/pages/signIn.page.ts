@@ -23,10 +23,6 @@ export class SignInPage {
         return "[data-ui-id='message-error'] div"
     }
 
-    missingPasswordAlert() {
-        return "#pass-error"
-    }
-
     async logUser(login: string, password: string): Promise<void> {
         await this.page.locator(this.emailInput()).fill(login)
         await this.page.locator(this.passwordInput()).fill(password)
@@ -36,10 +32,5 @@ export class SignInPage {
     async getLoginAlert(): Promise<string> {
         expect(await this.page.locator(this.loginAlert()).textContent()).not.toHaveLength(0)
         return await this.page.locator(this.loginAlert()).textContent()
-    }
-
-    async getMissingPasswordAlert(): Promise<string> {
-        expect(await this.page.locator(this.missingPasswordAlert()).textContent()).not.toHaveLength(0)
-        return await this.page.locator(this.missingPasswordAlert()).textContent()
     }
 }
