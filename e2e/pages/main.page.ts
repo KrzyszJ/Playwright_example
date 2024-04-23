@@ -18,7 +18,7 @@ export class MainPage {
 
     async open(): Promise<void> {
         await this.page.goto("https://magento.softwaretestingboard.com/")
-        await this.acceptCookies()
+        if (!process.env.CI) await this.acceptCookies()
     }
 
     async openSignInPage(): Promise<void> {
@@ -26,8 +26,6 @@ export class MainPage {
     }
 
     async acceptCookies(): Promise<void> {
-        try {
-            await this.page.locator(this.acceptCookiesButton()).click()
-        } catch (err) {console.log("cookies popup not displayed")}
+        await this.page.locator(this.acceptCookiesButton()).click()
     }
 }
