@@ -18,10 +18,16 @@ export class MainPage {
 
     async open(): Promise<void> {
         await this.page.goto("https://magento.softwaretestingboard.com/")
-        await this.page.locator(this.acceptCookiesButton()).click()
+        await this.acceptCookies()
     }
 
     async openSignInPage(): Promise<void> {
         await this.page.locator(this.signInLink()).click()
+    }
+
+    async acceptCookies(): Promise<void> {
+        try {
+            await this.page.locator(this.acceptCookiesButton()).click()
+        } catch (err) {}
     }
 }
