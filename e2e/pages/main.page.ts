@@ -28,6 +28,6 @@ export class MainPage {
     async acceptCookies(): Promise<void> {
         try {
             await this.page.locator(this.acceptCookiesButton()).click()
-        } catch (err) {}
+        } catch (err) {console.log("cookies popup not displayed")}
     }
 }
