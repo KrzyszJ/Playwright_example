@@ -12,6 +12,9 @@ export class MainPage {
     signInLink() {
         return ".page-header .authorization-link a"
     }
+    createAccountLink() {
+        return ".page-header a:has-text('Create an Account')"
+    }
     acceptCookiesButton() {
         return "[aria-label='Consent']"
     }
@@ -23,6 +26,10 @@ export class MainPage {
 
     async openSignInPage(): Promise<void> {
         await this.page.locator(this.signInLink()).click()
+    }
+
+    async openCreateAccountPage(): Promise<void> {
+        await this.page.locator(this.createAccountLink()).click()
     }
 
     async acceptCookies(): Promise<void> {

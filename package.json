@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "login": "npx playwright test --grep \"@login\"",
+    "user": "npx playwright test --grep \"@user\"",
     "allTests": "npx playwright test"
   },
   "author": "",
