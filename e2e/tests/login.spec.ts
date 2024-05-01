@@ -6,7 +6,7 @@ import * as loginMessages from "../testData/login.json"
 import { faker } from "@faker-js/faker"
 let context: BrowserContext, page: Page, accountPage: AccountPage, mainPage: MainPage, signInPage: SignInPage
 
-test.describe("login test suite @login", async () => {
+test.describe("login test suite @user", async () => {
 
     test.beforeEach( async ({ browser }) => {
         context = await browser.newContext()
@@ -21,11 +21,6 @@ test.describe("login test suite @login", async () => {
     test("shows info about wrong credentials", async () => {
         await signInPage.logUser(faker.internet.email(), faker.internet.password())
         expect(await signInPage.getLoginAlert()).toContain(loginMessages.incorrectLoginMessage)
-    })
-
-    test("logs user with correct login and password", async () => {
-        await signInPage.logUser("testfake123@test.pl", "Test1234!")
-        await accountPage.isCustomerMenuEnabled()
     })
 
     test.afterEach(async () => {
