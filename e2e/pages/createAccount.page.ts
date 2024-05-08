@@ -41,5 +41,4 @@ export class CreateAccountPage {
         await this.page.locator(this.confirmPasswordInput()).fill(password)
         await this.page.locator(this.createAccountButton()).click()
     }
-
 }

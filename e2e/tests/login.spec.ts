@@ -7,8 +7,7 @@ import { faker } from "@faker-js/faker"
 let context: BrowserContext, page: Page, accountPage: AccountPage, mainPage: MainPage, signInPage: SignInPage
 
 test.describe("login test suite @user", async () => {
-
-    test.beforeEach( async ({ browser }) => {
+    test.beforeEach(async ({ browser }) => {
         context = await browser.newContext()
         page = await context.newPage()
         accountPage = new AccountPage(page)

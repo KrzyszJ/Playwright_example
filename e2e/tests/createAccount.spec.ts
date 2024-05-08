@@ -6,8 +6,7 @@ import { faker } from "@faker-js/faker"
 let context: BrowserContext, page: Page, accountPage: AccountPage, createAccountPage: CreateAccountPage, mainPage: MainPage
 
 test.describe("login test suite @user", async () => {
-
-    test.beforeEach( async ({ browser }) => {
+    test.beforeEach(async ({ browser }) => {
         context = await browser.newContext()
         page = await context.newPage()
         accountPage = new AccountPage(page)
@@ -18,7 +17,12 @@ test.describe("login test suite @user", async () => {
     })
 
     test("creates user with valid data", async () => {
-        await createAccountPage.createAccount(faker.person.firstName(), faker.person.lastName(), faker.internet.email(), "Test!" + faker.internet.password({ length: 10 }) )
+        await createAccountPage.createAccount(
+            faker.person.firstName(),
+            faker.person.lastName(),
+            faker.internet.email(),
+            "Test!" + faker.internet.password({ length: 10 })
+        )
         await accountPage.isCustomerMenuEnabled()
     })
 })
