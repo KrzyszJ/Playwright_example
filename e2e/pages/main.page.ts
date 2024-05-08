@@ -20,7 +20,7 @@ export class MainPage {
     }
 
     async open(): Promise<void> {
-        await this.page.goto("https://magento.softwaretestingboard.com/")
+        await this.page.goto(process.env.TEST_ENVIRONMENT)
         if (!process.env.CI) await this.acceptCookies()
     }
 
