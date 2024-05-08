@@ -1,0 +1,1 @@
+Example repo: Playwright + Typescript + Github Actions + Husky/Eslint/Prettier for formatting
