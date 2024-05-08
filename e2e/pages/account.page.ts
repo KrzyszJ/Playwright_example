@@ -12,11 +12,16 @@ export class AccountPage {
     }
 
     async isCustomerMenuEnabled(): Promise<void> {
-        return await expect.poll(async () => {
-            return await this.page.locator(this.customerMenu()).isEnabled()
-        }, {
-            intervals: [250],
-            timeout: 10_000
-        }).toBe(true)
+        return await expect
+            .poll(
+                async () => {
+                    return await this.page.locator(this.customerMenu()).isEnabled()
+                },
+                {
+                    intervals: [250],
+                    timeout: 10_000
+                }
+            )
+            .toBe(true)
     }
 }
