@@ -6,7 +6,7 @@ export class AccountPage {
     constructor(page: Page) {
         this.page = page
     }
- let aeee
+
     customerMenu() {
         return "header [data-action='customer-menu-toggle']"
     }
